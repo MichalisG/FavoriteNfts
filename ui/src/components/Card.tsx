@@ -67,8 +67,7 @@ const Card = (props: Props) => {
       </figure>
       <div className="card-body p-4">
         <h3 className="card-title text-sm">{nft.name} #{nft.token_id}</h3>
-        <p>{metadata?.description}</p>
-        <div className="card-actions flex justify-evenly">
+        <div className="card-actions flex justify-evenly mt-4">
           <button className="btn btn-primary w-full btn-sm p-0" onClick={handleFavoriteAction}>
             {isFavorite
             ? <><Icons.HeartSolid/> Remove from Favorites</>
