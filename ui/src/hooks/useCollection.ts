@@ -1,11 +1,9 @@
 'use client'
 
-import { use, useCallback, useEffect, useState } from 'react'
-import { useAccount } from 'wagmi'
+import { useCallback, useState } from 'react'
 import useAuth from './useAuth'
 import {NFT} from '@@/interfaces/nft';
 
-import {fetchCollection} from '../services/collections';
 type Props = {
   address: string
 }
