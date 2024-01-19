@@ -21,7 +21,6 @@ const favoriteNFTSchema = new mongoose.Schema({
       },
       owner_of: {
         type: String,
-        required: true,
       },
       symbol: {
         type: String,
@@ -33,12 +32,15 @@ const favoriteNFTSchema = new mongoose.Schema({
       },
       metadata: {
         type: mongoose.Schema.Types.Mixed,
-        required: true,
+      },
+      media: {
+        type: mongoose.Schema.Types.Mixed,
       },
     },
   ],
 });
 
+favoriteNFTSchema.index({ ethereumAccount: 1, 'favoriteNfts.token_address': 1, 'favoriteNfts.token_id': 1 }, { unique: true });
 const FavoriteNFTModel = mongoose.model("FavoriteNFT", favoriteNFTSchema);
 
 export default FavoriteNFTModel;
