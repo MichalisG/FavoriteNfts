@@ -33,7 +33,6 @@ const Collection = (props: Props) => {
 
   return (
     <div>
-      Collection {props.collectionAddress}
       <div className='flex flex-wrap justify-between'>
         {renderNfts()}
       </div>
