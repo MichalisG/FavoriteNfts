@@ -25,3 +25,10 @@ export const getNft = async (address, tokenId, chain = defaultChain) => {
 
   });
 }
+
+export const getCollectionMetadata = async (address, chain = defaultChain) => {
+  return await Moralis.EvmApi.nft.getNFTContractMetadata({
+    chain,
+    address
+  });
+}

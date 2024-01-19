@@ -6,6 +6,7 @@ import Moralis from 'moralis';
 import favotitesRoutse from './routes/favorites.js';
 import nfts from './routes/nfts.js';
 import authRouter from './routes/auth.js';
+import collectionsRouter from './routes/collections.js';
 
 const port = process.env.PORT || 8080;
 
@@ -19,6 +20,7 @@ app.use(cors())
 app.use('/favorites', favotitesRoutse);
 app.use('/nfts', nfts);
 app.use('/auth', authRouter);
+app.use('/collections', collectionsRouter);
 
 const start = async () => {
   await mongoose.connect(process.env.DATABASE_URL)
