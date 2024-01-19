@@ -4,12 +4,6 @@ import React, {useState} from 'react';
 import Favorites from '@@/components/Favorites';
 
 const Browse = () => {
-
-  const onCollectionAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // TODO validate that it is a valid ethereum address
-    setCollectionAddress(event.target.value);
-  }
-
   return (
     <div className="flex min-h-screen flex-col items-center p-24">
       <div className="hero-content text-center">
