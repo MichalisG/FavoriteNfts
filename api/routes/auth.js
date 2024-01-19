@@ -10,8 +10,12 @@ authRouter.post('/login', async (req, res) => {
     
     const siweMessage = new SiweMessage(message)
     const fields = await siweMessage.verify({signature})
+
+    if (!fields.success) {
+      return res.status(401).send();
+    }
     
-    const accessToken = generateToken(fields.address);
+    const accessToken = generateToken(fields.data.address);
     
     res.json({accessToken});
   }
