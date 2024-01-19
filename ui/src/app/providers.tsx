@@ -25,7 +25,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
   [publicProvider()]
 );
 
-const projectId = process.env.WALLET_CONNECT_PROJECT_ID || 'projectId';
+const projectId = process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID || 'projectId';
 
 const { wallets } = getDefaultWallets({
   appName: 'Favotites',
