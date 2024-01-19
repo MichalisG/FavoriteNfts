@@ -1,21 +1,17 @@
 import express from 'express';
-import { getEvmAccount } from '../services/auth.js';
 import { generateToken } from '../services/jwt.js';
+import { SiweMessage } from 'siwe'
 
 const authRouter  = express.Router();
 
 authRouter.post('/login', async (req, res) => {
   try {
-    const {signature, rawMessage} = req.body;
+    const {signature, message} = req.body;
     
-    const {account, error} = await getEvmAccount(signature, rawMessage);
+    const siweMessage = new SiweMessage(message)
+    const fields = await siweMessage.verify({signature})
     
-    if (error) {
-      res.status(401).send();
-      return;
-    }
-
-    const accessToken = generateToken(account);
+    const accessToken = generateToken(fields.address);
     
     res.json({accessToken});
   }

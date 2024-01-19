@@ -1,5 +1,6 @@
 import 'dotenv/config'
 import express from 'express';
+import cors from 'cors';
 import mongoose from 'mongoose';
 import Moralis from 'moralis';
 import favotitesRoutse from './routes/favorites.js';
@@ -13,6 +14,7 @@ const db = mongoose.connection
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 
 app.use('/favorites', favotitesRoutse);
 app.use('/nfts', nfts);
