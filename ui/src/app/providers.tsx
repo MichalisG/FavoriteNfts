@@ -16,6 +16,7 @@ import { publicProvider } from 'wagmi/providers/public';
 import {
   mainnet,
 } from 'wagmi/chains';
+import { RecoilRoot } from 'recoil';
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
@@ -61,7 +62,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains} appInfo={demoAppInfo}>
-        {mounted && children}
+        <RecoilRoot>
+          {mounted && children}
+        </RecoilRoot>
+
       </RainbowKitProvider>
     </WagmiConfig>
   );
