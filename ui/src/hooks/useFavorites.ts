@@ -1,7 +1,6 @@
 'use client'
 
-import { use, useCallback, useEffect, useState } from 'react'
-import { useAccount } from 'wagmi'
+import { useCallback, useEffect } from 'react'
 import {
   useRecoilState,
   useRecoilValue,
@@ -9,8 +8,6 @@ import {
 import useAuth from './useAuth'
 import { NFT } from '@@/interfaces/nft';
 import { favoritesState } from '@@/state/favorites';
-
-import {fetchCollection} from '../services/collections';
 
 const useFavorites = () => {
   const [favorites, setFavorites] = useRecoilState(favoritesState);
