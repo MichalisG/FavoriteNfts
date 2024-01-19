@@ -8,7 +8,10 @@ export const getContactNfts = async (address, cursor, chain = defaultChain) => {
   return await Moralis.EvmApi.nft.getContractNFTs({
     chain,
     address,
-    cursor
+    cursor,
+    mediaItems: true,
+    normalizeMetadata: true,
+    limit: 20,
   });
 }
 
